@@ -17,11 +17,13 @@ class TestNote:
     def test_edit_content(self):
         notebook = Notebook()
         notebook.add_note("Hello World", "salute","hi")
-        notebook.edit_content(7,"Chao World")
+        id = notebook.notes[0].id
+        notebook.edit_content(id,"Chao World")
         assert notebook.notes[0].content == "Chao World"
     
     def test_edit_tags(self):
         notebook = Notebook()
         notebook.add_note("Hello World", "salute","hi")
-        notebook.edit_tags(8,"hola", "chao")
+        id = notebook.notes[0].id
+        notebook.edit_tags(id,"hola", "chao")
         assert notebook.notes[0].tags == ['hola', 'chao']
